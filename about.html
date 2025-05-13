@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About JamboShop - Kenya's Premier Online Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #ff8a00 0%, #e52e71 100%);
+        }
+        
+        .kenyan-flag {
+            background: linear-gradient(to bottom, 
+                black 33%, 
+                red 33% 66%, 
+                green 66%);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #e52e71;
+            border: 3px solid #ff8a00;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e52e71;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="bg-black text-white py-2 px-4 text-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-4">
+                <span><i class="fas fa-phone-alt mr-1"></i> +254 700 123456</span>
+                <span><i class="fas fa-envelope mr-1"></i> info@jamboshop.co.ke</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-yellow-400">Track Order</a>
+                <a href="#" class="hover:text-yellow-400">Sell on JamboShop</a>
+                <div class="flex items-center">
+                    <i class="fas fa-globe mr-1"></i>
+                    <select class="bg-black text-white border-none focus:outline-none">
+                        <option>Kenya</option>
+                        <option>Tanzania</option>
+                        <option>Uganda</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="kenyan-flag w-8 h-8 rounded-full mr-2"></div>
+                    <h1 class="text-2xl font-bold text-gray-800">Jambo<span class="text-orange-500">Shop</span></h1>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search for products..." 
+                            class="w-full py-2 px-4 border border-gray-300 rounded-l-full focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        <select class="absolute left-0 top-0 h-full border border-gray-300 rounded-l-full pl-2 pr-8 bg-gray-100 focus:outline-none">
+                            <option>All Categories</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home & Garden</option>
+                            <option>Groceries</option>
+                        </select>
+                        <button class="absolute right-0 top-0 h-full bg-orange-500 text-white px-6 rounded-r-full hover:bg-orange-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button id="cart-btn" class="text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="cart-badge">3</span>
+                        </button>
+                    </div>
+                    <button class="hidden md:block text-gray-700 hover:text-orange-500">
+                        <i class="fas fa-user text-xl"></i>
+                    </button>
+                    <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Search -->
+            <div class="mt-4 md:hidden">
+                <div class="relative">
+                    <input type="text" placeholder="Search for products..." 
+                        class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <button class="absolute right-3 top-2 text-gray-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="bg-orange-500 hidden md:block">
+            <div class="container mx-auto px-4">
+                <ul class="flex space-x-6 py-3 text-white">
+                    <li><a href="index.html" class="hover:underline">Home</a></li>
+                    <li><a href="about.html" class="hover:underline font-medium">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden">
+        <div class="absolute right-0 top-0 h-full w-3/4 bg-white shadow-lg overflow-y-auto">
+            <div class="p-4">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center">
+                        <div class="kenyan-flag w-6 h-6 rounded-full mr-2"></div>
+                        <h2 class="text-xl font-bold">JamboShop</h2>
+                    </div>
+                    <button id="close-mobile-menu" class="text-gray-500">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div class="mb-6">
+                    <a href="index.html" class="block py-2 px-4 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                    <a href="about.html" class="block py-2 px-4 bg-orange-100 text-orange-600 rounded-lg font-medium">
+                        <i class="fas fa-info-circle mr-2"></i> About
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="hero-gradient text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">About JamboShop</h1>
+            <p class="text-xl max-w-2xl mx-auto">Kenya's fastest growing e-commerce platform, connecting buyers and sellers across the nation</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://via.placeholder.com/500x400" alt="Our Story" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+                    <p class="text-gray-700 mb-4">Founded in 2018 in Nairobi, JamboShop began as a small online marketplace for local artisans to sell their products. What started as a passion project quickly grew into Kenya's premier e-commerce platform.</p>
+                    <p class="text-gray-700 mb-6">Today, we connect thousands of Kenyan businesses with millions of customers across all 47 counties, offering everything from electronics to fresh groceries delivered right to your doorstep.</p>
+                    <div class="flex space-x-4">
+                        <div class="bg-orange-100 p-4 rounded-lg text-center flex-1">
+                            <h3 class="text-2xl font-bold text-orange-500 mb-1">50,000+</h3>
+                            <p class="text-gray-700">Happy Customers</p>
+                        </div>
+                        <div class="bg-blue-100 p-4 rounded-lg text-center flex-1">
+                            <h3 class="text-2xl font-bold text-blue-500 mb-1">5,000+</h3>
+                            <p class="text-gray-700">Local Sellers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Our Mission & Values</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">We're committed to transforming commerce in Kenya through technology and innovation</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-orange-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Speed</h3>
+                    <p class="text-gray-700">We deliver most orders within 24 hours in major cities and 2-3 days nationwide.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-hand-holding-heart text-blue-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Trust</h3>
+                    <p class="text-gray-700">Every product is verified for quality before reaching our customers.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-leaf text-green-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Local Impact</h3>
+                    <p class="text-gray-700">We prioritize Kenyan businesses, helping them grow in the digital economy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Our Journey</h2>
+            
+            <div class="relative timeline pl-8 max-w-3xl mx-auto">
+                <!-- Timeline Item 1 -->
+                <div class="relative timeline-item mb-8 pl-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2 text-orange-500">2018</h3>
+                        <h4 class="text-lg font-semibold mb-2">Founded in Nairobi</h4>
+                        <p class="text-gray-700">Started as a small platform with just 20 local sellers focusing on handmade crafts and fashion.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="relative timeline-item mb-8 pl-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2 text-orange-500">2019</h3>
+                        <h4 class="text-lg font-semibold mb-2">Expanded to Electronics</h4>
+                        <p class="text-gray-700">Added electronics category and introduced next-day delivery in Nairobi.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="relative timeline-item mb-8 pl-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2 text-orange-500">2020</h3>
+                        <h4 class="text-lg font-semibold mb-2">Nationwide Reach</h4>
+                        <p class="text-gray-700">Expanded delivery network to cover all 47 counties in Kenya.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="relative timeline-item mb-8 pl-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2 text-orange-500">2022</h3>
+                        <h4 class="text-lg font-semibold mb-2">Mobile App Launch</h4>
+                        <p class="text-gray-700">Launched our mobile app with M-Pesa integration, reaching 100,000 downloads in 3 months.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="relative timeline-item pl-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2 text-orange-500">2023</h3>
+                        <h4 class="text-lg font-semibold mb-2">Market Leader</h4>
+                        <p class="text-gray-700">Recognized as Kenya's fastest growing e-commerce platform with over 5,000 active sellers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Meet Our Team</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">The passionate people behind JamboShop's success</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-member bg-white rounded-lg overflow-hidden shadow-md transition-all">
+                    <img src="https://via.placeholder.com/300x300" alt="Team Member" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Wanjiku Mwangi</h3>
+                        <p class="text-orange-500 mb-3">CEO & Founder</p>
+                        <p class="text-gray-700 mb-4">Former tech entrepreneur with a vision to digitize Kenyan commerce.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member bg-white rounded-lg overflow-hidden shadow-md transition-all">
+                    <img src="https://via.placeholder.com/300x300" alt="Team Member" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">James Omondi</h3>
+                        <p class="text-orange-500 mb-3">CTO</p>
+                        <p class="text-gray-700 mb-4">Tech expert leading our platform development and innovation.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member bg-white rounded-lg overflow-hidden shadow-md transition-all">
+                    <img src="https://via.placeholder.com/300x300" alt="Team Member" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Amina Hassan</h3>
+                        <p class="text-orange-500 mb-3">Head of Operations</p>
+                        <p class="text-gray-700 mb-4">Ensures seamless logistics and customer experience.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-member bg-white rounded-lg overflow-hidden shadow-md transition-all">
+                    <img src="https://via.placeholder.com/300x300" alt="Team Member" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Brian Kamau</h3>
+                        <p class="text-orange-500 mb-3">Marketing Director</p>
+                        <p class="text-gray-700 mb-4">Drives our brand growth and customer acquisition.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-orange-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Join the JamboShop Family</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Whether you're a shopper or seller, we'd love to have you as part of our growing community.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#" class="bg-white text-orange-500 px-8 py-3 rounded-full font-medium hover:bg-gray-100">
+                    Shop Now
+                </a>
+                <a href="#" class="border border-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-orange-500">
+                    Sell With Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="kenyan-flag w-6 h-6 rounded-full mr-2"></div>
+                        <h3 class="text-xl font-bold">JamboShop</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Kenya's premier online marketplace offering the best prices on electronics, fashion, home goods and more.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Special Offers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">My Account</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Order Tracking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Wishlist</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>JamboShop Plaza, Moi Avenue, Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>+254 700 123456</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>info@jamboshop.co.ke</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 JamboShop. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <img src="https://via.placeholder.com/40x25" alt="Visa" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Mastercard" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="M-Pesa" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Airtel Money" class="h-6">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        
+        // Cart Sidebar Toggle
+        const cartBtn = document.getElementById('cart-btn');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const closeCart = document.getElementById('close-cart');
+        
+        cartBtn.addEventListener('click', () => {
+            cartSidebar.classList.remove('hidden');
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.add('hidden');
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+            if (e.target === cartSidebar) {
+                cartSidebar.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
